@@ -1,0 +1,70 @@
+<!doctype html >
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="app" data-ng-controller="navController"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Survey Application</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" type="image/png" href="images/votingicon.png">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<nav class="navbar navbar-default navbarCustom navbar-fixed-top ">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle navbarToggleButtonCustom" ng-click="isNavCollapsed = !isNavCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a ng-show="pageUrl != '/home'" href="#!/home">
+                <img class="brandIcon" src="images/votingicon.png">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+        <div class="navbar-right navLinks">
+            <ul>
+                <li><a ng-class="{'selected' : pageUrl == '/home'}" href="#!/home">Home</a></li>
+                <li><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</nav>
+<body id="app">
+<div>
+    <div >
+        <div ng-view></div>
+    </div>
+</div>
+
+<!-- jquery -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jqeury ends-->
+
+<!-- tether -->
+<script src="bower_components/tether/dist/js/tether.min.js"></script>
+<!-- tether ends-->
+
+<!-- build:js scripts/vendor.js -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<!-- endbuild -->
+
+
+<!-- build:js({.tmp,public}) js/app.js -->
+<script src="js/app.js"></script>
+<script src="js/home/homeController.js"></script>
+<script src="js/shared/navController.js"></script>
+
+<!-- endbuild -->
+</body>
+</html>

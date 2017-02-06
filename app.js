@@ -1,0 +1,59 @@
+var express = require('express');
+var passport = require('passport');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var path = require('path');
+var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+
+var app = express();
+
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://127.0.0.1:27017/survey');
+
+mongoose.connection.once('connected', function() {
+    console.log("Connected to database")
+});
+
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.set('rootPath', __dirname);
+app.use(session({
+    secret: 'VoteTodayNow',
+    resave:true, saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+// require('./config/passport')(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./server/routes/index')(passport);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+// error handlers
+
+
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    console.log(err);
+    res.status(500).send('Something broke!');
+});
+
+
+module.exports = app;

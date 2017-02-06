@@ -1,0 +1,25 @@
+{
+  "name": "survey-application",
+  "description": "Application for surverys",
+  "main": "index.html",
+  "authors": [
+    "Aquibur Rahman Khan"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-bootstrap": "^2.5.0",
+    "angular-touch": "^1.6.1",
+    "bootstrap": "^3.3.7"
+  }
+}
