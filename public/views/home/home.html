@@ -1,8 +1,16 @@
-<div>
-    <div class="homePage row">
-        <div class="col-sm-12">
-            <img class="brandPhoto" src="images/votingicon.png">
+<div class="homePage">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <img class="centerDiv" src="images/votingicon.png">
             <h1 class="appHeading">VOTING SYSTEM</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  authenticationButtons">
+            <button ng-click="signup()" class="btn btn-lg btn-primary pull-right">Sign Up</button>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
+            <button ng-click="signin()" class="btn btn-lg btn-primary">Sign In</button>
         </div>
     </div>
 </div>
