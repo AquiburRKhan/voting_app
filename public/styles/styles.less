@@ -1,6 +1,6 @@
 // less variables start
 @headingColor : rgba(134,134,134,0.2);
-@headingFontFamily: 'Roboto', serif;
+@headingFontFamily: monospace;
 @navLinkFontColor: #808080;
 @customVotingResultAnimationBackground: #e6e6e6;
 @smartphones: ~"only screen and (max-width: 479px)";
@@ -97,13 +97,14 @@ body {
   height: 80px;
 }
 
-.authenticationButtons .btn-primary{
+.btn-primary{
   background-color: #989898;
   border-color: #808080;
   font-family: @headingFontFamily;
   box-shadow: -10px 10px 6px -6px #777;
   &:hover{
     background-color: #808080;
+    border-color: #808080;
     box-shadow: none;
   }
   &:active{
@@ -111,3 +112,40 @@ body {
     box-shadow: none;
   }
 }
+
+/* home css starts*/
+
+/* login css starts*/
+
+.loginForm{
+  width: 30%;
+  height: auto;
+  background-color: #bdbdbd;
+  margin: auto;
+  margin-top: 5%;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  font-family: @headingFontFamily;
+  padding: 60px 50px 80px 50px;
+}
+
+.loginForm h1{
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.signupText{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.signupText a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+/* login css starts*/
