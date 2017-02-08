@@ -1,5 +1,5 @@
-angular.module('app', ['ngRoute','ui.bootstrap','ngAnimate','ngTouch','app.controllers']).config([
-        '$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
+angular.module('app', ['ngRoute','ui.bootstrap','ngAnimate','ngTouch','app.controllers','toastr']).config([
+        '$routeProvider','$locationProvider','toastrConfig', function ($routeProvider,$locationProvider,toastrConfig) {
 
        $routeProvider.when('/', {
                 redirectTo: '/home'
@@ -17,5 +17,30 @@ angular.module('app', ['ngRoute','ui.bootstrap','ngAnimate','ngTouch','app.contr
             });
 
         $locationProvider.html5Mode(false);
+
+        angular.extend(toastrConfig, {
+            allowHtml: false,
+            closeButton: false,
+            closeHtml: '<button>&times;</button>',
+            extendedTimeOut: 1000,
+            newestOnTop: true,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: false,
+            preventOpenDuplicates: false,
+            target: 'body',
+            iconClasses: {
+                error: 'toast-error',
+                info: 'toast-info',
+                success: 'toast-success',
+                warning: 'toast-warning'
+            },
+            messageClass: 'toast-message',
+            onHidden: null,
+            onShown: null,
+            onTap: null,
+            progressBar: false,
+            tapToDismiss: true,
+            timeOut: 3000
+        });
         }
     ]);

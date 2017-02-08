@@ -16,3 +16,10 @@ exports.createUser = function (req, res) {
     });
 
 };
+
+exports.loginUser = function (req, res) {
+
+        res.json({
+            result: 'rsas'
+        })
+};

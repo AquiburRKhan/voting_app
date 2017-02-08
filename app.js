@@ -31,7 +31,7 @@ app.use(session({
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
-require('./config/passport')(passport);
+require('./config/passport')(app);
 
 var routes = require('./server/routes/index');
 app.use('/', routes);

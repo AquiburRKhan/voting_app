@@ -10,7 +10,6 @@ var publicDirectoryPath = path.join(__dirname, '..' , '..' , 'public');
     });
     /* GET home page. END */
 
-
     router.route('/logout')
         .get(function (req, res) {
             req.logout();

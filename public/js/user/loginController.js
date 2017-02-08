@@ -5,8 +5,7 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
             if(!user){
                 return;
             }
-            console.log(user);
-            $http.post('/users/create',user)
+            $http.post('/users/login',user)
                 .then(function (response) {
                     console.log(response);
                 }, function (error) {
