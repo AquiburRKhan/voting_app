@@ -25,7 +25,7 @@ userSchema.methods.validPassword = function(password,cb) {
     });
 };
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose,{usernameField: 'email'});
 
 
 module.exports = mongoose.model('User', userSchema);

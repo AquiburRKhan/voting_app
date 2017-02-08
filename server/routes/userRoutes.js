@@ -7,5 +7,5 @@ var userController = require('../controllers/user_serverController'),
 module.exports = function(router){
     router.route('/users/create').post(userController.createUser);
 
-    router.route('/users/login').post(userController.loginUser);
+    router.route('/users/login').post(passport.authenticate('local'),userController.loginUser);
 };
