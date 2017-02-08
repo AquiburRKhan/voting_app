@@ -13,6 +13,30 @@ body {
   background-color: @customVotingResultAnimationBackground;
 }
 
+.btn-primary{
+  background-color: #989898;
+  border-color: #808080;
+  font-family: @headingFontFamily;
+  box-shadow: -10px 10px 6px -6px #777;
+  &:hover{
+    background-color: #808080;
+    border-color: #808080;
+    box-shadow: none;
+  }
+  &:active{
+    background-color: #808080;
+    box-shadow: none;
+  }
+  &:focus{
+    background-color: #989898;
+    box-shadow: none;
+  }
+  &:active:focus{
+    background-color: #989898;
+    box-shadow: none;
+  }
+}
+
 
 /* home css starts*/
 
@@ -95,22 +119,6 @@ body {
   .box-sizing;
   width: 200px;
   height: 80px;
-}
-
-.btn-primary{
-  background-color: #989898;
-  border-color: #808080;
-  font-family: @headingFontFamily;
-  box-shadow: -10px 10px 6px -6px #777;
-  &:hover{
-    background-color: #808080;
-    border-color: #808080;
-    box-shadow: none;
-  }
-  &:active{
-    background-color: #808080;
-    box-shadow: none;
-  }
 }
 
 /* home css starts*/

@@ -7,9 +7,11 @@ angular.module('app', ['ngRoute','ui.bootstrap','ngAnimate','ngTouch','app.contr
                 templateUrl: 'views/home/home.html',
                 controller: "homeController"
             }).when('/login', {
-                templateUrl: 'views/user/login.html'
+                templateUrl: 'views/user/login.html',
+                controller: "loginController"
             }).when('/signup', {
-                templateUrl: 'views/user/signup.html'
+                templateUrl: 'views/user/signup.html',
+                controller: "signupController"
             }).otherwise({
                     redirectTo: '/404'
             });

@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -28,12 +29,12 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-// require('./config/passport')(passport);
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
-app.use(passport.initialize());
-app.use(passport.session());
+require('./config/passport')(passport);
 
-require('./server/routes/index')(passport);
+var routes = require('./server/routes/index');
+app.use('/', routes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,8 +46,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
-
 
 // production error handler
 // no stacktraces leaked to user
