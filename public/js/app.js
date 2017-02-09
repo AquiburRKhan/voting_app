@@ -1,4 +1,4 @@
-angular.module('app', ['app.services','app.controllers','ngRoute','ui.bootstrap','ngAnimate','ngTouch','toastr']).config([
+angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui.bootstrap','ngAnimate','ngTouch','toastr']).config([
         '$routeProvider','$locationProvider','toastrConfig', function ($routeProvider,$locationProvider,toastrConfig) {
 
        $routeProvider.when('/', {
