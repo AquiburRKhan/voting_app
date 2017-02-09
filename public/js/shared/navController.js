@@ -5,7 +5,7 @@ angular.module('app.controllers').controller('navController', ['$scope','$locati
         $scope.isNavCollapsed = true;
         $scope.pageUrl = $location.path();
 
-        $scope.$on("$routeChangeSuccess", function () {
+        $scope.$on("$routeChangeStart", function () {
             $scope.pageUrl = $location.path();
         })
 

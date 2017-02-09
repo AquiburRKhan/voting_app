@@ -37,8 +37,13 @@ body {
   }
 }
 
-
 /* home css starts*/
+
+.homePage{
+  margin: auto;
+  margin-top: 8%;
+}
+
 
 .navbarCustom{
   position: absolute;
@@ -121,7 +126,7 @@ body {
   height: 80px;
 }
 
-/* home css starts*/
+/* home css ends*/
 
 /* login css starts*/
 
@@ -130,7 +135,7 @@ body {
   height: auto;
   background-color: #bdbdbd;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 8%;
   color: white;
   font-size: x-large;
   font-weight: bold;
@@ -156,4 +161,36 @@ body {
 
 
 
-/* login css starts*/
+/* login css ends*/
+
+
+// media queries css starts
+
+@media (max-width: 1100px) {
+  .homePage{
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+
+  .loginForm{
+    width: 50%;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .homePage{
+    margin: auto;
+    margin-top: 20%;
+  }
+
+  .loginForm{
+    width: auto;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+}
+
+// media queries css ends

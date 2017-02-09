@@ -1,5 +1,5 @@
-angular.module('app.controllers').controller('loginController', ['$scope','$location','$http',
-    function ($scope,$location, $http) {
+angular.module('app.controllers').controller('loginController', ['$scope','$location','$http','toastr',
+    function ($scope,$location,$http,toastr) {
 
         $scope.login = function(user){
             if(!user){
@@ -7,9 +7,10 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
             }
             $http.post('/users/login',user)
                 .then(function (response) {
-                    console.log(response);
+                    toastr.success(response.data.result,'SUCCESS');
+                    $location.path("/");
                 }, function (error) {
-                    console.log(error);
+                    toastr.error('"Unauthorized"','ERROR');
                 });
         }
 

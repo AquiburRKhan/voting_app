@@ -17,15 +17,6 @@ var userSchema = new mongoose.Schema({
         }
 });
 
-// checking if password is valid
-userSchema.methods.validPassword = function(password,cb) {
-    return bcrypt.compare(password, this.password ,function(err, isMatch) {
-        if (err) return cb(err);
-        return cb(null, isMatch);
-    });
-};
-
 userSchema.plugin(passportLocalMongoose,{usernameField: 'email'});
-
 
 module.exports = mongoose.model('User', userSchema);
