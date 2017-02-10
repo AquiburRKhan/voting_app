@@ -65,13 +65,28 @@
 <!-- endbuild -->
 
 <!-- build:js({.tmp,public}) js/app.js -->
+
+<script src="js/services/Firebase.js"></script>
 <script src="js/app.js"></script>
 <script src="js/home/homeController.js"></script>
 <script src="js/user/signupController.js"></script>
 <script src="js/user/loginController.js"></script>
 <script src="js/shared/navController.js"></script>
-<script src="js/services/Auth.js"></script>
 
 <!-- endbuild -->
+
+
+<!-- firebase initializer-->
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDnKCHECMm7wonnqfNYBR8K5n-RzTanlrs",
+    authDomain: "votingapplication-d4225.firebaseapp.com",
+    databaseURL: "https://votingapplication-d4225.firebaseio.com",
+    messagingSenderId: "153664495303"
+  };
+  firebase.initializeApp(config);
+</script>
 </body>
 </html>

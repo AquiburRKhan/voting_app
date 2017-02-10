@@ -1,6 +1,8 @@
 angular.module('app.controllers').controller('loginController', ['$scope','$location','$http','toastr',
     function ($scope,$location,$http,toastr) {
 
+
+
         $scope.login = function(user){
             if(!user){
                 return;
