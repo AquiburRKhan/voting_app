@@ -18,7 +18,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(8000);
+server.listen(8000,'0.0.0.0');
 server.on('error', onError);
 server.on('listening', onListening);
 

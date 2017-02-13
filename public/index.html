@@ -1,6 +1,6 @@
 <!doctype html >
 <!--[if gt IE 8]><!-->
-<html class="no-js" ng-app="app" data-ng-controller="navController"> <!--<![endif]-->
+<html class="no-js container-fluid" ng-app="app" data-ng-controller="navController"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -30,7 +30,8 @@
         <div class="navbar-right navLinks">
             <ul>
                 <li><a ng-class="{'selected' : pageUrl == '/home'}" href="#!/home">Home</a></li>
-                <li><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
+                <li ng-hide="loggedIn"><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
+                <li ng-click="logout()" ng-show="loggedIn"><a>Logout</a></li>
             </ul>
         </div>
     </div>
@@ -66,7 +67,7 @@
 
 <!-- build:js({.tmp,public}) js/app.js -->
 
-<script src="js/services/Firebase.js"></script>
+<script src="js/services/Auth.js"></script>
 <script src="js/app.js"></script>
 <script src="js/home/homeController.js"></script>
 <script src="js/user/signupController.js"></script>

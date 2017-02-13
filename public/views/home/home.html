@@ -9,8 +9,11 @@
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  authenticationButtons">
             <a href="#!/signup"><button class="btn btn-lg btn-primary pull-right">Sign Up</button></a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
+        <div ng-hide="loggedIn" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
             <a href="#!/login"><button class="btn btn-lg btn-primary">Sign In</button></a>
+        </div>
+        <div ng-show="loggedIn" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
+            <a href="#!/petition/create"><button class="btn btn-lg btn-primary">Create <br> Petition</button></a>
         </div>
     </div>
 </div>

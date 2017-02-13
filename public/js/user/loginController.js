@@ -1,7 +1,7 @@
-angular.module('app.controllers').controller('loginController', ['$scope','$location','$http','toastr','$firebaseAuth',
-    function ($scope,$location,$http,toastr,$firebaseAuth) {
+angular.module('app.controllers').controller('loginController', ['$scope','$location','$http','toastr','Auth',
+    function ($scope,$location,$http,toastr,Auth) {
 
-        $scope._authObj = $firebaseAuth();
+        $scope._authObj = Auth;
 
         $scope.login = function(user){
             if(!user){
@@ -13,7 +13,7 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
                 }, function (error) {
                     toastr.error('"Unauthorized"','ERROR');
                 });
-        }
+        };
 
         var loginWithFirebase = function(email, password){
             $scope._authObj.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
@@ -25,7 +25,5 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
                 toastr.error('"Authentication failed"','ERROR');
             });
         }
-
-
     }
 ]);
