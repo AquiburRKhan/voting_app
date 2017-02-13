@@ -1,9 +1,7 @@
-angular.module('app.controllers').controller('signupController', ['$scope','$location','$http','toastr',
-    function($scope,$location, $http, toastr) {
+angular.module('app.controllers').controller('signupController', ['$scope','$location','$http','toastr','$firebaseAuth',
+    function($scope,$location, $http, toastr,$firebaseAuth) {
 
-    var ref = firebase.database().ref();
-    console.log(ref);
-    // $scope._loginObj = $firebaseSimpleLogin(dataRef);
+        $scope._authObj = $firebaseAuth();
 
         $scope.signup = function(user){
             if(!user){
@@ -11,18 +9,21 @@ angular.module('app.controllers').controller('signupController', ['$scope','$loc
             }
             $http.post('/users/create',user)
                 .then(function (response) {
-                    $scope._loginObj.$createUser(user.email,user.password).then(
-                      function(){
-                        toastr.success('Sign Up Successful','SUCCESS');
-                        $location.path('/login');
-                      },
-                      function(error){
-                        toastr.error('Something went wrong, please try again','ERROR');
-                      }
-                    )
+                    signupWithFirebase(user.email,user.password);
                 }, function (error) {
                     toastr.error('Email or Username already in use','ERROR');
                 });
+        }
+
+        var signupWithFirebase = function(email,password){
+            $scope._authObj.$createUserWithEmailAndPassword(email, password)
+                .then(function(firebaseUser) {
+                    console.log("User " + firebaseUser.uid + " created successfully!");
+                    toastr.success('User created successfully','SUCCESS');
+                    $location.path('/login');
+                }).catch(function(error) {
+                console.error("Error: ", error);
+            });
         }
 
 
