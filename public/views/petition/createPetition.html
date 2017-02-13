@@ -1,1 +1,12 @@
-Hello petition
+<div class="loginForm row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1>Create Petition</h1>
+        <form>
+            <div class="form-group">
+                <label for="InputUsername">Topic Name</label>
+                <textarea ng-model="name" rows="4" cols="10" class="form-control" id="InputUsername" placeholder="Topic Name" required></textarea>
+            </div>
+            <button ng-click="createPetition(name)" type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>

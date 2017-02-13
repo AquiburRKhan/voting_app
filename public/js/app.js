@@ -22,6 +22,7 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
                 controller: "signupController"
             }).when('/petition/create', {
                 templateUrl: 'views/petition/createPetition.html',
+                controller: "createPetitionController",
                 resolve: authRequired
             }).otherwise({
                     redirectTo: '/404'
