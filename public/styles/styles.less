@@ -44,6 +44,33 @@ body {
   margin-top: 8%;
 }
 
+.petitionLists{
+  width: 60%;
+  height: auto;
+  background-color: #bdbdbd;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 20%;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  font-family: @headingFontFamily;
+  padding: 30px 10px 40px 10px;
+  h2{
+    padding-bottom: 20px;
+  }
+   li{
+    padding-bottom: 15px;
+     a{
+       color: white;
+       cursor: pointer;
+       text-decoration: none;
+       &:hover{
+         color: darkgrey;
+       }
+     }
+  }
+}
 
 .navbarCustom{
   position: absolute;
@@ -142,25 +169,20 @@ body {
   font-weight: bold;
   font-family: @headingFontFamily;
   padding: 60px 50px 80px 50px;
-}
-
-.loginForm h1{
-  text-align: center;
-  padding-bottom: 10px;
+  h1{
+    text-align: center;
+    padding-bottom: 10px;
+  }
 }
 
 .signupText{
   padding-top: 30px;
   text-align: center;
+  a{
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
-
-.signupText a{
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-
 
 /* login css ends*/
 
@@ -177,6 +199,10 @@ body {
   .loginForm{
     width: 50%;
   }
+
+  .petitionLists{
+    width: 80%;
+  }
 }
 
 
@@ -188,6 +214,14 @@ body {
   }
 
   .loginForm{
+    width: auto;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+
+
+  .petitionLists{
     width: auto;
     margin: auto;
     margin-top: 20%;
