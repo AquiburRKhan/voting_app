@@ -1,20 +1,22 @@
-angular.module('app.controllers').controller('createPetitionController', ['$scope','FBDataRef',
-    function($scope,FBDataRef) {
+angular.module('app.controllers').controller('createPetitionController', ['$scope','$http','toastr',
+    function($scope, $http,toastr) {
 
         var petition = {};
-        var _fbpetition = FBDataRef();
+        //var petitions = {};
+        //var _fbpetitionRef = FBDataRef();
 
         $scope.createPetition = function(name){
             petition = {name: name, voteCount: 0};
-            _fbpetition.petition = petition;
-            _fbpetition.$save().then(function(ref) {
-                console.log(ref);
-            }, function(error) {
-                console.log("Error:", error);
-            });
+
+            $http.post('/petition/create',petition)
+                .then(function (response) {
+                    $scope.name = '';
+                    toastr.success(response.data.msg,'SUCCESS');
+                }, function (error) {
+                    console.log(error);
+                    toastr.error(error.data.msg,'ERROR');
+                });
         };
-
-
 
     }
 ]);

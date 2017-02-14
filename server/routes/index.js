@@ -11,6 +11,7 @@ var publicDirectoryPath = path.join(__dirname, '..' , '..' , 'public');
     /* GET home page. END */
 
     router.route('/logout')
+        //TODO: logout both angular server from firebase
         .get(function (req, res) {
             req.logout();
             res.redirect('/');
@@ -21,5 +22,6 @@ var publicDirectoryPath = path.join(__dirname, '..' , '..' , 'public');
 
 //all routes goes here
 require('./userRoutes')(router);
+require('./petitionRoutes')(router);
 
 module.exports = router;

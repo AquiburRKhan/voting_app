@@ -11,13 +11,13 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
                 .then(function (response) {
                     loginWithFirebase(user.email,user.password);
                 }, function (error) {
-                    toastr.error('"Unauthorized"','ERROR');
+                    toastr.error(error.data.msg,'ERROR');
                 });
         };
 
         var loginWithFirebase = function(email, password){
             $scope._authObj.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
-                console.log("Signed in as:", firebaseUser.uid);
+                console.log("Signed in");
                 toastr.success("Signed in successfully",'SUCCESS');
                 $location.path("/");
             }).catch(function(error) {
