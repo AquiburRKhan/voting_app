@@ -1,6 +1,6 @@
 // less variables start
-@headingColor : rgba(134,134,134,0.2);
-@headingFontFamily: monospace;
+@navbarColor : rgba(134,134,134,0.2);
+@navbarFontFamily: monospace;
 @navLinkFontColor: #808080;
 @customVotingResultAnimationBackground: #e6e6e6;
 @smartphones: ~"only screen and (max-width: 479px)";
@@ -13,10 +13,24 @@ body {
   background-color: @customVotingResultAnimationBackground;
 }
 
+.navbar-default .navbar-nav>li>a{
+  color: @navLinkFontColor;
+  &:hover {
+    color: #c6c6c6;
+  }
+  &:active {
+    color: #c6c6c6;
+  }
+  &.selected {
+    color: #c6c6c6;
+  }
+}
+
+
 .btn-primary{
   background-color: #989898;
   border-color: #808080;
-  font-family: @headingFontFamily;
+  font-family: @navbarFontFamily;
   box-shadow: -10px 10px 6px -6px #777;
   &:hover{
     background-color: #808080;
@@ -58,7 +72,7 @@ body {
   color: white;
   font-size: x-large;
   font-weight: bold;
-  font-family: @headingFontFamily;
+  font-family: @navbarFontFamily;
   padding: 30px 10px 40px 10px;
   h2{
     padding-bottom: 20px;
@@ -78,7 +92,7 @@ body {
 
 .navbarCustom{
   position: absolute;
-  background-color: @headingColor;
+  background-color: @navbarColor;
   border-bottom: solid 2px;
   border-color: #a7a7a7;
 }
@@ -87,36 +101,12 @@ body {
   margin-top: 15px;
 }
 
-.navLinks{
-  width: auto;
-  vertical-align: middle;
-  ul{
-    font-family: @headingFontFamily;
-    list-style-type: none;
-    font-size: 38px;
-    margin: 5px 0 0 0;
-    padding: 0;
-    color: @navLinkFontColor;
-    li{
-      display: inline;
-      padding-right: 30px;
-      a{
-        color: @navLinkFontColor;
-        text-decoration: none;
-        cursor: pointer;
-        &:hover{
-          color: #c6c6c6;
-        }
-        &:active{
-          color: #c6c6c6;
-        }
-        &.selected{
-          color: #c6c6c6;
-        }
-      }
-    }
-  }
+.navLinksList{
+  font-family: @navbarFontFamily;
+  list-style-type: none;
+  font-size: 32px;
 }
+
 
 .brandIcon{
   box-sizing: border-box;
@@ -130,7 +120,7 @@ body {
 
 .appHeading{
   color: #989898;
-  font-family: @headingFontFamily;
+  font-family: @navbarFontFamily;
   font-weight: bolder;
   font-size: 60px;
   text-align: center;
@@ -171,7 +161,7 @@ body {
   color: white;
   font-size: x-large;
   font-weight: bold;
-  font-family: @headingFontFamily;
+  font-family: @navbarFontFamily;
   padding: 60px 20px 80px 20px;
   h1{
     text-align: center;
@@ -232,7 +222,6 @@ body {
     margin-top: 20%;
     margin-bottom: 20%;
   }
-
 
   .petitionLists{
     width: auto;

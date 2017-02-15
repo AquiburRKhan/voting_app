@@ -27,10 +27,13 @@
         </a>
     </div>
     <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
-        <div class="navbar-right navLinks">
-            <ul>
+        <div class="navbar-right">
+            <ul class="nav navbar-nav navLinksList">
                 <li><a ng-class="{'selected' : pageUrl == '/home'}" href="#!/home">Home</a></li>
                 <li ng-hide="loggedIn"><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
+                <li ng-show="loggedIn"><a>Create</a></li>
+                <li ng-show="loggedIn"><a>MyPetitions</a></li>
+                <li ng-show="loggedIn"><a>AllPetitions</a></li>
                 <li ng-click="logout()" ng-show="loggedIn"><a>Logout</a></li>
             </ul>
         </div>
