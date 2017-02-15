@@ -24,7 +24,21 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
                 templateUrl: 'views/petition/createPetition.html',
                 controller: "createPetitionController",
                 resolve: authRequired
-            }).otherwise({
+            }).when('/petition/:petitionId/edit', {
+                templateUrl: 'views/petition/editPetition.html',
+                controller: "editPetitionController",
+                resolve: authRequired
+            })
+           //.when('/petition/list', {
+           //     templateUrl: 'views/petition/listPetitionsByUser.html',
+           //     controller: "listPetitionsByUserController",
+           //     resolve: authRequired
+           // }).when('/petition/listAll', {
+           //     templateUrl: 'views/petition/listPetitions.html',
+           //     controller: "listPetitionsController",
+           //     resolve: authRequired
+           // })
+           .otherwise({
                     redirectTo: '/404'
             });
 

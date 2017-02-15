@@ -7,6 +7,8 @@
                 <textarea ng-model="name" rows="4" cols="10" class="form-control" id="InputUsername" placeholder="Topic Name" required></textarea>
             </div>
             <button ng-click="createPetition(name)" type="submit" class="btn btn-primary">Create</button>
+            <br>
+            <img ng-show="isLoading" class="loadingIcon" src="../../images/loading_icon.gif">
         </form>
     </div>
 </div>
