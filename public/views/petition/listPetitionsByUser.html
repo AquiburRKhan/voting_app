@@ -1,0 +1,23 @@
+<img ng-hide="isPetitionsListLoaded" class="petitionListloadingIcon" src="../../images/loading_icon.gif">
+<div ng-show="isPetitionsListLoaded" class="row petitionLists">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2 class="text-center"><u><b>PETITIONS BY YOU</b></u></h2>
+        <ul style="list-style-type: none" ng-repeat="petition in petitionsList">
+            <li>
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        {{petition.name}}
+                        <br>
+                        {{petition.description}}
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                         <span class="pull-right">
+                             {{petition.createdAt | date : 'shortTime'}} -
+                             {{petition.createdAt | date : 'mediumDate'}}
+                         </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -14,8 +14,15 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
                 .then(function (response) {
                     loginWithFirebase(user.email,user.password);
                 }, function (error) {
+                    var errMsg;
                     $scope.isLoading = false;
-                    toastr.error(error.data.msg,'ERROR');
+
+                    if(!error.data.msg){
+                        errMsg = 'Failed to login';
+                    } else{
+                        errMsg = error.data.msg;
+                    }
+                    toastr.error(errMsg,'ERROR');
                 });
         };
 
@@ -28,7 +35,7 @@ angular.module('app.controllers').controller('loginController', ['$scope','$loca
             }).catch(function(error) {
                 $scope.isLoading = false;
                 console.error("Authentication failed:", error);
-                toastr.error('"Authentication failed"','ERROR');
+                toastr.error("Authentication failed",'ERROR');
             });
         }
     }

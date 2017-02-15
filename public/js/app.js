@@ -28,12 +28,12 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
                 templateUrl: 'views/petition/editPetition.html',
                 controller: "editPetitionController",
                 resolve: authRequired
+            }).when('/petition/:fbUserId/list', {
+                templateUrl: 'views/petition/listPetitionsByUser.html',
+                controller: "listPetitionsByUserController",
+                resolve: authRequired
             })
-           //.when('/petition/list', {
-           //     templateUrl: 'views/petition/listPetitionsByUser.html',
-           //     controller: "listPetitionsByUserController",
-           //     resolve: authRequired
-           // }).when('/petition/listAll', {
+           //.when('/petition/listAll', {
            //     templateUrl: 'views/petition/listPetitions.html',
            //     controller: "listPetitionsController",
            //     resolve: authRequired

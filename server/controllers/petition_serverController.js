@@ -10,6 +10,7 @@ exports.createPetition = function *(req, res) {
         var petition = {
             name: req.body.name,
             voteCount: req.body.voteCount,
+            description: req.body.description,
             createdBy: req.user.username,
             authorEmail: req.user.email,
             createdAt: Date.now().toString()
