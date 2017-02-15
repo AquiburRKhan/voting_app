@@ -14,6 +14,7 @@ angular.module('app.controllers').controller('navController', ['$scope','$locati
         $scope._authObj.$onAuthStateChanged(function(firebaseUser) {
             if(firebaseUser) {
                 console.log('user signed in');
+                $scope.firebaseUser = $scope._authObj.$getAuth();
                 $scope.loggedIn = true;
             } else {
                 console.log('user signed out');

@@ -24,7 +24,7 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
                 templateUrl: 'views/petition/createPetition.html',
                 controller: "createPetitionController",
                 resolve: authRequired
-            }).when('/petition/:petitionId/edit', {
+            }).when('/petition/:fbUserId/:petitionId/edit', {
                 templateUrl: 'views/petition/editPetition.html',
                 controller: "editPetitionController",
                 resolve: authRequired
