@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
+    FbAuth = require('../../config/nodeFirebase').fbAuth
     path = require('path');
 var publicDirectoryPath = path.join(__dirname, '..' , '..' , 'public');
 
@@ -11,9 +12,9 @@ var publicDirectoryPath = path.join(__dirname, '..' , '..' , 'public');
     /* GET home page. END */
 
     router.route('/logout')
-        //TODO: logout both angular server from firebase
         .get(function (req, res) {
-            req.logout();
+            req.logout(); //logout from passport
+            FbAuth.signOut(); //logout from firebase from node
             res.redirect('/');
         });
 

@@ -24,7 +24,7 @@ angular.module('app.controllers').controller('navController', ['$scope','$locati
         $scope.logout = function(){
             $http.get('/logout')
                 .then(function (response) {
-                    $scope._authObj.$signOut();
+                    $scope._authObj.$signOut(); //logout from angularfire
                     toastr.success('Signed out successfully','SUCCESS');
                     $location.path('/home');
                 }, function (error) {
