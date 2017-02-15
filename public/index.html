@@ -31,9 +31,9 @@
             <ul class="nav navbar-nav navLinksList">
                 <li><a ng-class="{'selected' : pageUrl == '/home'}" href="#!/home">Home</a></li>
                 <li ng-hide="loggedIn"><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
-                <li ng-show="loggedIn"><a href="#!/petition/create">Create</a></li>
-                <li ng-show="loggedIn"><a href="#!/petition/{{firebaseUser.uid}}/list">MyPetitions</a></li>
-                <li ng-show="loggedIn"><a href="#!/petition/listAll">AllPetitions</a></li>
+                <li ng-show="loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/create' }" href="#!/petition/create">Create</a></li>
+                <li ng-show="loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/'+firebaseUser.uid+'/list' }" href="#!/petition/{{firebaseUser.uid}}/list">MyPetitions</a></li>
+                <li ng-show="loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/listAll' }" href="#!/petition/listAll">AllPetitions</a></li>
                 <li ng-click="logout()" ng-show="loggedIn"><a>Logout</a></li>
             </ul>
         </div>

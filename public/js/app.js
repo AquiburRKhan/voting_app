@@ -32,13 +32,11 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
                 templateUrl: 'views/petition/listPetitionsByUser.html',
                 controller: "listPetitionsByUserController",
                 resolve: authRequired
-            })
-           //.when('/petition/listAll', {
-           //     templateUrl: 'views/petition/listPetitions.html',
-           //     controller: "listPetitionsController",
-           //     resolve: authRequired
-           // })
-           .otherwise({
+            }).when('/petition/listAll', {
+                templateUrl: 'views/petition/listPetitions.html',
+                controller: "listPetitionsController",
+                resolve: authRequired
+            }).otherwise({
                     redirectTo: '/404'
             });
 

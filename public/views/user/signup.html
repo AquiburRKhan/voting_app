@@ -14,5 +14,7 @@
             <input ng-model="form.password" type="password" class="form-control" id="InputPassword" placeholder="Password" required>
         </div>
         <button ng-click="signup(form)" type="submit" class="btn btn-primary">Sign up</button>
+        <br>
+        <img ng-show="isLoading" class="loadingIcon" src="../../images/loading_icon.gif">
     </form>
 </div>
