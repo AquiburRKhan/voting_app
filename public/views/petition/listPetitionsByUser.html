@@ -1,8 +1,8 @@
 <img ng-show="isPetitionsListLoaded" class="petitionListloadingIcon" src="../../images/loading_icon.gif">
-<div ng-hide="isPetitionsListLoaded" class="row petitionLists">
+<div ng-hide="isPetitionsListLoaded" class="row petitionListBoxCSS">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h2 class="text-center"><u><b>YOUR PETITIONS</b></u></h2>
-        <ul style="list-style-type: none" ng-repeat="petition in petitionsList">
+        <h3 class="text-center"><u><b>MY PETITIONS</b></u></h3>
+        <ul style="list-style-type: none" ng-repeat="petition in petitionsList | orderBy: '-createdAt' ">
             <li>
                 <div class="row">
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">

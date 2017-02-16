@@ -1,7 +1,18 @@
 <img ng-show="isPetitionsListLoaded" class="petitionListloadingIcon" src="../../images/loading_icon.gif">
-<div ng-hide="isPetitionsListLoaded" class="row petitionLists">
+<div ng-hide="isPetitionsListLoaded" class="row petitionListBoxCSS">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h2 class="text-center"><u><b>YOUR PETITIONS</b></u></h2>
-
+        <form>
+            <button ng-click="deletePetition()" class="btn btn-danger pull-right">delete</button>
+            <h3>Edit Petition</h3>
+            <div class="form-group">
+                <label for="InputTopicname">Topic Name*</label>
+                <textarea ng-model="petition.name" rows="4" cols="10" class="form-control" id="InputTopicname" placeholder="Topic Name" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="InputDescription">Topic Description</label>
+                <textarea ng-model="petition.description" rows="4" cols="10" class="form-control" id="InputDescription" placeholder="Topic Description"></textarea>
+            </div>
+            <br>
+        </form>
     </div>
 </div>

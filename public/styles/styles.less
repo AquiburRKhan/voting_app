@@ -62,7 +62,7 @@ body {
   margin-top: 8%;
 }
 
-.petitionLists{
+.petitionListBoxCSS{
   width: 60%;
   height: auto;
   background-color: #bdbdbd;
@@ -74,6 +74,13 @@ body {
   font-weight: bold;
   font-family: @navbarFontFamily;
   padding: 30px 10px 40px 10px;
+  a{
+    text-decoration: none;
+  }
+}
+
+.petitionLists{
+  .petitionListBoxCSS;
   h2{
     padding-bottom: 20px;
   }
@@ -220,6 +227,24 @@ body {
   .petitionLists{
     width: 80%;
   }
+
+  .petitionListBoxCSS{
+    width: 80%;
+  }
+}
+
+
+@media (max-width: 770px){
+  .navLinksList {
+    font-size: 20px;
+  }
+
+  .petitionListBoxCSS{
+    width: 80%;
+    .h3, h3{
+      font-size: 20px;
+    }
+  }
 }
 
 
@@ -242,6 +267,16 @@ body {
     margin: auto;
     margin-top: 20%;
     margin-bottom: 20%;
+  }
+
+  .petitionListBoxCSS{
+    width: 80%;
+    .h3, h3{
+      font-size: 20px;
+    }
+    ul{
+      padding: 0;
+    }
   }
 }
 
