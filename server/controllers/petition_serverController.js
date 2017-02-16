@@ -24,15 +24,15 @@ exports.createPetition = function *(req, res) {
 };
 
 exports.getPetitionList = function *(req, res) {
-    console.log(req.body);
-    console.log(req.user);
-    res.json({msg: 'success'});
-};
+    try{
+        var petitionsSnapshot = yield FBdatabase.ref('petitions').once('value');
+        var petitions = petitionsSnapshot.val();
+        return res.status(200).send({msg: 'Petitions successfully loaded',data: petitions});
 
-exports.deletePetition = function *(req, res) {
-    console.log(req.body);
-    console.log(req.user);
-    res.json({msg: 'success'});
+    } catch(e){
+        console.log(e.stack);
+        return res.status(400).send({msg: 'Failed to load Petitions',error: e.stack});
+    }
 };
 
 exports.getUserPetitions = function *(req, res) {

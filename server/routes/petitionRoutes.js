@@ -9,8 +9,6 @@ module.exports = function(router){
 
     router.route('/petitions').get(wrap(petitionController.getPetitionList));
 
-    router.route('/petition/delete').post(authHelper.loggedIn,wrap(petitionController.deletePetition));
-
     router.route('/petition/getuserpetitions').get(authHelper.loggedIn,wrap(petitionController.getUserPetitions));
 
 };
