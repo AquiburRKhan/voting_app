@@ -34,8 +34,7 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
                 resolve: authRequired
             }).when('/petition/listAll', {
                 templateUrl: 'views/petition/listPetitions.html',
-                controller: "listPetitionsController",
-                resolve: authRequired
+                controller: "listPetitionsController"
             }).otherwise({
                     redirectTo: '/404'
             });

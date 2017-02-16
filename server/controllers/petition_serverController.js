@@ -35,6 +35,18 @@ exports.getPetitionList = function *(req, res) {
     }
 };
 
+exports.getRecentPetitionList = function *(req, res) {
+    try{
+        var petitionsSnapshot = yield FBdatabase.ref('petitions').orderByChild("createdAt").limitToLast(5).once('value');
+        var petitions = petitionsSnapshot.val();
+        return res.status(200).send({msg: 'Petitions successfully loaded',data: petitions});
+
+    } catch(e){
+        console.log(e.stack);
+        return res.status(400).send({msg: 'Failed to load Petitions',error: e.stack});
+    }
+};
+
 exports.getUserPetitions = function *(req, res) {
     try{
         var userPetitionsSnapshot = yield FBdatabase.ref('petitions').orderByChild('authorEmail').equalTo(req.user.email).once('value');

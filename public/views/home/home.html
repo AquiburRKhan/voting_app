@@ -16,16 +16,26 @@
             <a href="#!/petition/create"><button class="btn btn-lg btn-primary">Create <br> Petition</button></a>
         </div>
     </div>
-    <div class="row petitionLists">
+    <img ng-show="isPetitionsListLoaded" class="petitionListloadingIcon" src="../../images/loading_icon.gif">
+    <div ng-hide="isPetitionsListLoaded" class="row petitionLists">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h2 class="text-center"><u><b>RECENT PETITIONS</b></u></h2>
-            <ul>
-                <li><a>Do you want Lunch?</a></li>
-                <li>What is your name in cursive hand writting?</li>
-                <li>Why am i testing this app when i have no work</li>
-                <li>Who are you and who am i and why do we exist</li>
-                <li>Life is strange is a game and my life is not strange</li>
-
+            <a href="#!/petition/listAll"><h2 class="text-center"><u><b>RECENT PETITIONS</b></u></h2></a>
+            <ul style="list-style-type: none" ng-repeat="petition in petitionsList | orderBy: '-createdAt' ">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <a href="#!/petition/{{petition.key}}/vote"><h3><b class="listPetitionHeading">{{petition.name}}</b></h3></a>
+                            <p class="petitionCreatedBy">Created By: {{petition.createdBy}}</p>
+                            <p><i>{{petition.description}}</i></p>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                         <span class="pull-right">
+                             <h3><b>{{petition.createdAt | date : 'mediumDate'}}</b></h3>
+                             <p><i>{{petition.createdAt | date : 'shortTime'}}</i></p>
+                         </span>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
