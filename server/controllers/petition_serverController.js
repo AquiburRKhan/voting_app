@@ -29,14 +29,6 @@ exports.getPetitionList = function *(req, res) {
     res.json({msg: 'success'});
 };
 
-
-exports.editPetition = function *(req, res) {
-    console.log(req.body);
-    console.log(req.user);
-    res.json({msg: 'success'});
-};
-
-
 exports.deletePetition = function *(req, res) {
     console.log(req.body);
     console.log(req.user);
