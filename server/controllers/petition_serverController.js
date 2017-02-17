@@ -11,6 +11,7 @@ exports.createPetition = function *(req, res) {
             name: req.body.name,
             voteCount: req.body.voteCount,
             description: req.body.description,
+            maxVotes: req.body.maxVotes,
             createdBy: req.user.username,
             authorEmail: req.user.email,
             createdAt: Date.now().toString()
@@ -20,6 +21,28 @@ exports.createPetition = function *(req, res) {
         return res.status(200).send({msg: 'Petition successfully created'});
     } catch(e){
         return res.status(400).send({msg: 'Failed to create Petition'});
+    }
+};
+
+exports.votePetition = function *(req, res) {
+    try{
+
+        yield FBdatabase.ref('petitions/' + req.body.$id).transaction(function(petition){
+            petition.voteCount = petition.voteCount + 1;
+
+            if(petition.voterEmails){
+                petition.voterEmails.push(req.user.email);
+            } else {
+                petition.voterEmails = [req.user.email];
+            }
+
+            return petition;
+        });
+
+        return res.status(200).send({msg: 'Your vote has been saved'});
+    } catch(e){
+        console.log(e);
+        return res.status(400).send({msg: 'Failed to save vote'});
     }
 };
 

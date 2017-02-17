@@ -10,7 +10,11 @@
                 <label for="InputDescription">Topic Description</label>
                 <textarea ng-model="description" rows="4" cols="10" class="form-control" id="InputDescription" placeholder="Topic Description"></textarea>
             </div>
-            <button ng-click="createPetition(name,description)" type="submit" class="btn btn-primary">Create</button>
+            <div class="form-group">
+                <label for="InputMaxVotes">Max Votes Needed For Petition Approval</label>
+                <input ng-model="maxVotes" type="number"  class="form-control" id="InputMaxVotes" placeholder="Please enter a max number" required>
+            </div>
+            <button ng-click="createPetition(name,description,maxVotes)" type="submit" class="btn btn-primary">Create</button>
             <br>
             <img ng-show="isLoading" class="loadingIcon" src="../../images/loading_icon.gif">
         </form>

@@ -1,7 +1,7 @@
 // less variables start
-@navbarColor : rgba(134,134,134,0.2);
+@navbarColor : rgba(134,134,134,0.6);
 @navbarFontFamily: monospace;
-@navLinkFontColor: #808080;
+@navLinkFontColor: white;
 @customVotingResultAnimationBackground: #e6e6e6;
 @smartphones: ~"only screen and (max-width: 479px)";
 @tablets: ~"only screen and (min-width: 768px) and (max-width: 959px)";
@@ -203,13 +203,13 @@ body {
 .listPetitionHeading{
   color: white;
   &:hover{
-    color: lightgrey;
+    color: rgba(60,68,74,0.77);
   }
   &:active{
-    color: lightgrey;
+    color: rgba(60,68,74,0.77);
   }
   &:focus{
-    color: lightgrey;
+    color: rgba(60,68,74,0.77);
   }
 }
 
@@ -219,6 +219,15 @@ body {
 }
 
 /* user petition list css ends*/
+
+/* vote page css starts*/
+
+.voteCount{
+  font-size: 34px;
+  font-weight: 700;
+}
+
+/* vote page css ends */
 
 // media queries css starts
 
@@ -282,7 +291,7 @@ body {
   }
 
   .petitionListBoxCSS{
-    width: 80%;
+    width: 95%;
     .h3, h3{
       font-size: 20px;
     }

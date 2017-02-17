@@ -6,12 +6,12 @@ angular.module('app.controllers').controller('createPetitionController', ['$scop
         $scope._authObj = Auth;
         var firebaseUser = $scope._authObj.$getAuth();
 
-        $scope.createPetition = function(name,description){
+        $scope.createPetition = function(name,description,maxVotes){
             $scope.isLoading = true;
             if(!description){
                 description = 'No description given';
             }
-            petition = {name: name, voteCount: 0, description: description};
+            petition = {name: name, voteCount: 0, description: description,maxVotes: maxVotes};
 
             $http.post('/petition/create',petition)
                 .then(function (response) {

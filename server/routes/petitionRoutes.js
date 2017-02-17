@@ -7,6 +7,8 @@ var petitionController = require('../controllers/petition_serverController'),
 module.exports = function(router){
     router.route('/petition/create').post(authHelper.loggedIn,wrap(petitionController.createPetition));
 
+    router.route('/petition/vote').post(authHelper.loggedIn,wrap(petitionController.votePetition));
+
     router.route('/petitions').get(wrap(petitionController.getPetitionList));
 
     router.route('/recentpetitions').get(wrap(petitionController.getRecentPetitionList));

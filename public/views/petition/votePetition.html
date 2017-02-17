@@ -1,0 +1,16 @@
+<img ng-show="isPetitionsListLoaded" class="petitionListloadingIcon" src="../../images/loading_icon.gif">
+<div ng-hide="isPetitionsListLoaded" class="row petitionListBoxCSS">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h4>Petition</h4>
+        <h2>{{petition.name}}</h2>
+        <h3>{{petition.description}}</h3>
+        <button ng-click="voteForPetition()" class="btn btn-lg btn-success">Click To Vote</button>
+        <br>
+        <br>
+        <br>
+        <p><span class="voteCount">{{petition.voteCount}}</span> votes</p>
+        <uib-progressbar max="petition.maxVotes" value="petition.voteCount"><span style="color:white; white-space:nowrap;">{{petition.voteCount}} / {{petition.maxVotes}}</span></uib-progressbar>
+        <p class="pull-right">{{petition.maxVotes}}</p>
+    </div>
+
+</div>

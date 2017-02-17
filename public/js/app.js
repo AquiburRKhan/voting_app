@@ -35,6 +35,9 @@ angular.module('app', ['app.services','app.controllers','firebase','ngRoute','ui
             }).when('/petition/listAll', {
                 templateUrl: 'views/petition/listPetitions.html',
                 controller: "listPetitionsController"
+            }).when('/petition/:petitionId/vote', {
+                templateUrl: 'views/petition/votePetition.html',
+                controller: "votePetitionController"
             }).otherwise({
                     redirectTo: '/404'
             });
