@@ -28,6 +28,22 @@ exports.votePetition = function *(req, res) {
     try{
 
         yield FBdatabase.ref('petitions/' + req.body.$id).transaction(function(petition){
+
+            // http://stackoverflow.com/questions/33578887/transcation-updatefunction-parameter-is-null
+            if(!petition){
+                return 0;
+            }
+
+            //only vote once,checking email ids keeping them unique
+            if(petition.voterEmails && petition.voterEmails.indexOf(req.user.email) != -1){
+               return;
+            }
+
+
+            if(!petition.voteCount){
+                petition.voteCount = 0;
+            }
+
             petition.voteCount = petition.voteCount + 1;
 
             if(petition.voterEmails){
@@ -41,8 +57,7 @@ exports.votePetition = function *(req, res) {
 
         return res.status(200).send({msg: 'Your vote has been saved'});
     } catch(e){
-        console.log(e);
-        return res.status(400).send({msg: 'Failed to save vote'});
+        return res.status(400).send(e.message);
     }
 };
 
