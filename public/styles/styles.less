@@ -65,17 +65,22 @@ body {
 .petitionListBoxCSS{
   width: 60%;
   height: auto;
-  background-color: #bdbdbd;
+  background-color: rgba(198,196,196,0.58);
+  border: solid #bdbdbd 2px;
+  border-radius: 20px;
   margin: auto;
   margin-top: 3%;
   margin-bottom: 20%;
-  color: white;
+  color: rgba(0, 0, 0, 0.36);
   font-size: x-large;
   font-weight: bold;
   font-family: @navbarFontFamily;
   padding: 30px 10px 40px 10px;
   a{
     text-decoration: none;
+  }
+  h3{
+    color: rgba(0, 0, 0, 0.53);
   }
 }
 
@@ -87,7 +92,6 @@ body {
    li{
     padding-bottom: 15px;
      a{
-       color: white;
        cursor: pointer;
        text-decoration: none;
        &:hover{
@@ -197,7 +201,7 @@ body {
 }
 
 .listPetitionHeading{
-  color: grey;
+  color: white;
   &:hover{
     color: lightgrey;
   }
@@ -209,15 +213,12 @@ body {
   }
 }
 
-/* user petition list css ends*/
-
-//petitions lists css starts
-
 .petitionCreatedBy{
-  color:#6f7780
+  color:rgba(6,6,6,0.26);
+  font-size: 16px;
 }
 
-//petitions lists css ends
+/* user petition list css ends*/
 
 // media queries css starts
 
