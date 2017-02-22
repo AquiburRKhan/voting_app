@@ -12,7 +12,7 @@ var favicon = require('serve-favicon');
 var app = express();
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://127.0.0.1:27017/survey');
+mongoose.connect('mongodb://aquib17:database@ds157559.mlab.com:57559/surveydbbs23');
 
 mongoose.connection.once('connected', function() {
     console.log("Connected to database")
