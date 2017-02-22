@@ -19,23 +19,23 @@ angular.module('app.controllers').controller('signupController', ['$scope','$loc
             }
             $http.post('/users/create',user)
                 .then(function (response) {
-                    signupWithFirebase(user.email,user.password);
+                    loginWithFirebase(user.email,user.password);
                 }, function (error) {
                     $scope.isLoading = false;
                     toastr.error('Email or Username already in use','ERROR');
                 });
         }
 
-        var signupWithFirebase = function(email,password){
-            $scope._authObj.$createUserWithEmailAndPassword(email, password)
-                .then(function(firebaseUser) {
-                    console.log("User " + firebaseUser.uid + " created successfully!");
-                    $scope.isLoading = false;
-                    toastr.success('User created successfully','SUCCESS');
-                    $location.path('/');
-                }).catch(function(error) {
+        var loginWithFirebase = function(email, password){
+            $scope._authObj.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
                 $scope.isLoading = false;
-                console.error("Error: ", error);
+                console.log("Signed up");
+                toastr.success("Signed up successfully",'SUCCESS');
+                $location.path("/");
+            }).catch(function(error) {
+                $scope.isLoading = false;
+                console.error("Authentication failed:", error);
+                toastr.error("Authentication failed",'ERROR');
             });
         }
 

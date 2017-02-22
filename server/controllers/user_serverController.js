@@ -5,6 +5,7 @@ require('../models/user');
 var mongoose = require('mongoose'),
     passport = require('passport'),
     FbAuth = require('../../config/nodeFirebase').fbAuth,
+    co = require('co'),
     User = mongoose.model('User');
 
 exports.createUser = function (req, res) {
@@ -12,7 +13,19 @@ exports.createUser = function (req, res) {
         if (err) {
             return res.status(400).send({status:err.message});
         }else{
-            return res.json({user: user});
+
+            req.login(user, function(err) {
+                if (err) {
+                    return res.status(400).send({status:err});
+                }
+            });
+
+            co(function *(){
+                yield FbAuth.createUserWithEmailAndPassword(req.body.email,req.body.password);
+                return res.status(200).json({msg: 'Logged In Successfully',user: req.user})
+            }).catch(function(coError){
+                return res.status(400).send({status:coError.message});
+            });
         }
     });
 
