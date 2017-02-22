@@ -1,5 +1,5 @@
-angular.module('app.controllers').controller('loginController', ['$scope','userAuth','$location','$http','toastr','Auth',
-    function ($scope,userAuth,$location,$http,toastr,Auth) {
+angular.module('app.controllers').controller('loginController', ['$scope','$location','$http','toastr','Auth',
+    function ($scope,$location,$http,toastr,Auth) {
 
         $scope._authObj = Auth;
         $scope.isLoading = false;
@@ -30,7 +30,6 @@ angular.module('app.controllers').controller('loginController', ['$scope','userA
             $scope._authObj.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
                 $scope.isLoading = false;
                 console.log("Signed in");
-                userAuth.setUserEmail(email);
                 toastr.success("Signed in successfully",'SUCCESS');
                 $location.path("/");
             }).catch(function(error) {

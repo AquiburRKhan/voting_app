@@ -1,12 +1,11 @@
-angular.module('app.controllers').controller('votePetitionController', ['$scope','userAuth','FBDataRef','$routeParams','$http','toastr','Auth','$location',
-    function($scope,userAuth,FBDataRef,$routeParams,$http,toastr) {
+angular.module('app.controllers').controller('votePetitionController', ['$scope','FBDataRef','$routeParams','$http','toastr','Auth','$location',
+    function($scope,FBDataRef,$routeParams,$http,toastr) {
 
         //TODO: save user in browser using session or other way, and remove userAuth service and its usages
 
         $scope.petition = {};
         $scope.isPetitionsListLoaded = true;
         $scope.votedOnce = false;
-        var userEmail = userAuth.getUserEmail();
         var petitionFbObj = FBDataRef('petitions/'+$routeParams.petitionId);
 
         if(!userEmail){
