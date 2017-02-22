@@ -1,6 +1,8 @@
-angular.module('app.services',[]).factory('Auth', function ($firebaseAuth) {
+angular.module('app.services',[])
+
+    .factory('Auth', function ($firebaseAuth) {
     return $firebaseAuth();
-})
+    })
 
     .factory('FBDataRef', function ($firebaseObject) {
         var ref = firebase.database();

@@ -1,40 +1,38 @@
-angular.module('app.controllers').controller('votePetitionController', ['$scope','FBDataRef','$routeParams','$http','toastr','Auth','$location',
-    function($scope,FBDataRef,$routeParams,$http,toastr) {
-
-        //TODO: save user in browser using session or other way, and remove userAuth service and its usages
+angular.module('app.controllers').controller('votePetitionController', ['$scope','Auth','FBDataRef','$routeParams','$http','toastr','Auth','$location',
+    function($scope,Auth,FBDataRef,$routeParams,$http,toastr) {
 
         $scope.petition = {};
         $scope.isPetitionsListLoaded = true;
         $scope.votedOnce = false;
+        $scope.firebaseUser = $scope._authObj.$getAuth();
         var petitionFbObj = FBDataRef('petitions/'+$routeParams.petitionId);
 
-        if(!userEmail){
-            toastr.info('Sign in to vote','Info');
-        }
+        var checkUserLoggedIn = function(){
+            if(!$scope.firebaseUser){
+                toastr.info('Sign in to vote','Info');
+            } else {
+                if($scope.petition.voterEmails) {
+                    if ($scope.petition.voterEmails.indexOf($scope.firebaseUser.email) != -1) {
+                        $scope.votedOnce = true;
+                    }
+                }
+            }
+        };
 
         petitionFbObj.$loaded().then(function() {
             $scope.isPetitionsListLoaded = false;
             $scope.petition = petitionFbObj;
-            $scope.percentageComplete = ($scope.petition.maxVotes/$scope.petition.voteCount)*100
+            $scope.percentageComplete = ($scope.petition.maxVotes/$scope.petition.voteCount)*100;
+            checkUserLoggedIn();
         });
 
         petitionFbObj.$bindTo($scope, "petition"); // for three-way data binding
 
-
-        console.log(userEmail);
-        console.log($scope.petition);
-
         $scope.voteForPetition = function(){
-
-
-
-            if($scope.petition.voterEmails.indexOf(userEmail) != -1){
-                toastr.info('You cannot vote twice','Info');
-                $scope.votedOnce = true;
-            }
 
             $http.post('/petition/vote',$scope.petition)
                 .then(function (response) {
+                    $scope.votedOnce = true;
                     toastr.success(response.data.msg,'SUCCESS');
                 }, function (error) {
                     toastr.error(error.data,'ERROR');
