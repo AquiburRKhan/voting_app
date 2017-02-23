@@ -10,6 +10,7 @@ angular.module('app.controllers',[]).controller('homeController', ['$scope','$lo
         $scope._authObj.$onAuthStateChanged(function(firebaseUser) {
             if(firebaseUser) {
                 $scope.loggedIn = true;
+                $scope.firebaseUser = $scope._authObj.$getAuth();
             } else {
                 $scope.loggedIn = false;
             }

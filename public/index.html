@@ -23,18 +23,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a ng-show="pageUrl != '/home'" href="#!/home">
+        <a ng-cloak ng-show="pageUrl != '/home'" href="#!/home">
                 <img class="brandIcon" src="images/votingicon.png">
         </a>
     </div>
     <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
         <div class="navbar-right">
-            <ul class="nav navbar-nav navLinksList">
+            <ul ng-cloak class="nav navbar-nav navLinksList">
                 <li><a ng-class="{'selected' : pageUrl == '/home'}" href="#!/home">Home</a></li>
-                <li ng-hide="loggedIn"><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
-                <li ng-show="loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/create' }" href="#!/petition/create">Create</a></li>
-                <li ng-show="loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/'+firebaseUser.uid+'/list' }" href="#!/petition/{{firebaseUser.uid}}/list">MyPetitions</a></li>
-                <li ng-show="loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/listAll' }" href="#!/petition/listAll">AllPetitions</a></li>
+                <li ng-show="!loggedIn"><a ng-class="{'selected' : pageUrl == '/login' }" href="#!/login">Login</a></li>
+                <li ng-hide="!loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/create' }" href="#!/petition/create">Create</a></li>
+                <li ng-hide="!loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/'+firebaseUser.uid+'/list' }" href="#!/petition/{{firebaseUser.uid}}/list">MyPetitions</a></li>
+                <li ng-hide="!loggedIn"><a ng-class="{'selected' : pageUrl == '/petition/listAll' }" href="#!/petition/listAll">AllPetitions</a></li>
                 <li ng-click="logout()" ng-show="loggedIn"><a>Logout</a></li>
             </ul>
         </div>

@@ -2,7 +2,7 @@
 <div ng-hide="isPetitionsListLoaded" class="row petitionListBoxCSS">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="text-center"><u><b>MY PETITIONS</b></u></h3>
-        <ul style="list-style-type: none" ng-repeat="petition in petitionsList | orderBy: '-createdAt' ">
+        <ul style="list-style-type: none" ng-show="petitionsList.length > 0" ng-repeat="petition in petitionsList | orderBy: '-createdAt' ">
             <li>
                 <div class="row">
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -18,5 +18,10 @@
                 </div>
             </li>
         </ul>
+        <div ng-show="petitionsList.length == 0" class="row text-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2><b class="listPetitionHeading">Nothing to show here :D</b></h2>
+            </div>
+        </div>
     </div>
 </div>

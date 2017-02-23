@@ -55,7 +55,7 @@ exports.votePetition = function *(req, res) {
             return petition;
         });
 
-        return res.status(200).send({msg: 'Your vote has been saved'});
+        return res.status(200).send({msg: 'Your sign has been saved'});
     } catch(e){
         return res.status(400).send(e.message);
     }

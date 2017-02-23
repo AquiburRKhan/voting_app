@@ -2,22 +2,25 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <img class="centerDiv" src="images/votingicon.png">
-            <h1 class="appHeading">VOTING SYSTEM</h1>
+            <h1 class="appHeading">PETITIONS</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  authenticationButtons">
+        <div ng-hide="loggedIn" class="col-xs-6 col-sm-6 col-md-6 col-lg-6  authenticationButtons">
             <a href="#!/signup"><button class="btn btn-lg btn-primary pull-right">Sign Up</button></a>
         </div>
         <div ng-hide="loggedIn" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
             <a href="#!/login"><button class="btn btn-lg btn-primary">Sign In</button></a>
         </div>
         <div ng-show="loggedIn" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
-            <a href="#!/petition/create"><button class="btn btn-lg btn-primary">Create <br> Petition</button></a>
+            <a href="#!/petition/create"><button class="btn btn-lg btn-primary pull-right">Create <br> Petition</button></a>
+        </div>
+        <div ng-show="loggedIn" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 authenticationButtons">
+            <a href="#!/petition/{{firebaseUser.uid}}/list"><button class="btn btn-lg btn-primary">My <br> Petition</button></a>
         </div>
     </div>
     <img ng-show="isPetitionsListLoaded" class="petitionListloadingIcon" src="../../images/loading_icon.gif">
-    <div ng-hide="isPetitionsListLoaded" class="row petitionLists">
+    <div ng-hide="isPetitionsListLoaded || petitionsList.length == 0" class="row petitionLists">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <a href="#!/petition/listAll"><h2 class="text-center"><u><b>RECENT PETITIONS</b></u></h2></a>
             <ul style="list-style-type: none" ng-repeat="petition in petitionsList | orderBy: '-createdAt' ">
