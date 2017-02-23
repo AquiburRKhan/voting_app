@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bower install"
   },
   "engines": {
     "node": "6.9.1",
-    "npm": "4.0.2"
+    "npm": "4.0.2",
+    "bower": "1.8.0"
   },
   "author": "Aquibur Rahman Khan",
   "license": "MIT",
