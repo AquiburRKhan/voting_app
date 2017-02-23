@@ -8,7 +8,8 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "6.9.1"
+    "node": "6.9.1",
+    "npm": "4.0.2"
   },
   "author": "Aquibur Rahman Khan",
   "license": "MIT",
